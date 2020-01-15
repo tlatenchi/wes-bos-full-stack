@@ -22,7 +22,7 @@ class MyApp extends App {
 	}
 	render() {
 		const { Component, apollo, pageProps } = this.props;
-		console.log('hit');
+		// console.log('hit');
 		return (
 			<Container>
 				<ApolloProvider client={apollo}>

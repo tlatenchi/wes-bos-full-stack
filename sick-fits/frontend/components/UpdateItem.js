@@ -43,7 +43,7 @@ class UpdateItem extends Component {
 	handleChange = (e) => {
 		const { name, type, value } = e.target;
 		const val = type === 'number' ? parseFloat(value) : value;
-		console.log('hit');
+		// console.log('hit');
 		this.setState(() => {
 			return {
 				[name]: val
@@ -53,8 +53,8 @@ class UpdateItem extends Component {
 
 	updateItem = async (e, updateItemMutation) => {
 		e.preventDefault();
-		console.log('updating item!!');
-		console.log(this.state);
+		// console.log('updating item!!');
+		// console.log(this.state);
 
 		const res = await updateItemMutation({
 			variables: {
@@ -62,7 +62,7 @@ class UpdateItem extends Component {
 				...this.state
 			}
 		});
-		console.log('Updated!!!');
+		// console.log('Updated!!!');
 	};
 
 	render() {
