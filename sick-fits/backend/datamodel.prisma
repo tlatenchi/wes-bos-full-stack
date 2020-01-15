@@ -1,10 +1,22 @@
-type User {
-  id: ID! @Unique @id
-  name: String!
-  email: String!
-  updatedAt: DateTime! @updatedAt
-  createdAt: DateTime! @createdAt
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
 }
+
+type User {
+  id: ID! @unique @id
+  name: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy: RELATION)
+}
+
 type Item {
   id: ID! @Unique @id
   title: String!
