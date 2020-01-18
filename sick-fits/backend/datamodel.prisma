@@ -18,12 +18,11 @@ type User {
 }
 
 type Item {
-  id: ID! @Unique @id
+  id: ID! @unique @id
   title: String!
   description: String!
   image: String
   largeImage: String
   price: Int!
-  updatedAt: DateTime! @updatedAt
-  createdAt: DateTime! @createdAt
+  user: User!
 }
