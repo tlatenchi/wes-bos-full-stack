@@ -29,6 +29,7 @@ function totalItems(cart) {
 
 class TakeMyMoney extends React.Component {
   onToken = async (res, createOrder) => {
+    NProgress.start();
     console.log('On Token Called!');
     console.log(res.id);
     // manually call the mutation once we have the stripe token
@@ -39,7 +40,10 @@ class TakeMyMoney extends React.Component {
     }).catch(err => {
       alert(err.message);
     });
-    console.log(order);
+    Router.push({
+      pathname: '/order',
+      query: { id: order.data.createOrder.id }
+    });
   };
   render() {
     return (
@@ -57,7 +61,7 @@ class TakeMyMoney extends React.Component {
                 image={
                   me.cart.length && me.cart[0].item && me.cart[0].item.image
                 }
-                stripeKey="pk_test_N0wtxLTd5d3BlUkqAve170JV00mwzodG6i"
+                stripeKey="pk_test_Vtknn6vSdcZWSG2JWvEiWSqC"
                 currency="USD"
                 email={me.email}
                 token={res => this.onToken(res, createOrder)}
