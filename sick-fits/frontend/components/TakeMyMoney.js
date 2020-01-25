@@ -27,7 +27,7 @@ class TakeMyMoney extends React.Component {
             name="Sick Fits"
             description={`Order of ${totalItems(me.cart)} items!`}
             image={me.cart[0].item && me.cart[0].item.image}
-            stripeKey="pk_test_Vtknn6vSdcZWSG2JWvEiWSqC"
+            stripeKey="pk_test_N0wtxLTd5d3BlUkqAve170JV00mwzodG6i"
             currency="USD"
             email={me.email}
             token={res => this.onToken(res)}
